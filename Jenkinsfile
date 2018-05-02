@@ -8,7 +8,7 @@ pipeline {
                 withMaven(maven : 'M3') {
                 
         configFileProvider(
-        [configFile(fileId: 'e3cfa9aa-8870-4a4b-91ae-c7b929c7f7e1', variable: 'MySettings')]) {
+        [configFile(fileId: 'e3cfa9aa-8870-4a4b-91ae-c7b929c7f7e1', variable: 'MyGlobalSettings')]) {
         bat 'mvn -s settings.xml clean package'
     }
                 }
