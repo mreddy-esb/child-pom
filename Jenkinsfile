@@ -1,40 +1,23 @@
 pipeline {
-  agent any
-  
-  tools {
-        maven 'M3'
-        jdk 'Java 8'
-    }
-    
-    
-  stages {
-    stage('Unit Test') { 
-      steps {
-        bat 'mvn clean test'
-      }
-    }
-    stage('Deploy CloudHub') { 
-      steps { 
-        bat 'mvn deploy -P cloudhub' 
-      }
-    }
-  }
-}
+    agent any
+
+    stages {
+        stage ('Compile and Testing Stage') {
+
+            steps {
+                withMaven(maven : 'M3') {
+                    bat 'mvn clean package'
+                }
+            }
+        }
 
 
-
-def mvn(args) {
-    withMaven(
-        // Maven installation declared in the Jenkins "Global Tool Configuration"
-        maven: 'M3',
-        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-        
-        // settings.xml referencing the GitHub Artifactory repositories
-         mavenSettingsConfig: 'c1c27aab-9532-4f6c-a989-83d32425b586',
-        // we do not need to set a special local maven repo, take the one from the standard box
-        //mavenLocalRepo: '.repository'
-        ) {
-        // Run the maven build
-        bat "mvn $args -Dmaven.test.failure.ignore"
+        stage ('Deployment Stage') {
+            steps {
+                withMaven(maven : 'M3') {
+                    bat 'mvn deploy -P cloudhub'
+                }
+            }
+        }
     }
 }
