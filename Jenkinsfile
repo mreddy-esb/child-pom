@@ -9,7 +9,7 @@ pipeline {
                 
         configFileProvider(
         [configFile(fileId: '265f10a3-08d1-4894-9e76-d346c338c37e', variable: 'C:/Users/Dad/.m2')]) {
-        bat 'mvn -s $MAVEN_SETTINGS clean package'
+        bat 'mvn -s settings.xml clean package'
     }
                 }
             }
