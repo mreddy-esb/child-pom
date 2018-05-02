@@ -6,8 +6,10 @@ pipeline {
         sh 'mvn clean test'
       }
     }
-    stage('Deploy Cloudhub') { 
+    stage('Deploy CloudHub') { 
       steps {
-        sh 'mvn deploy -P cloudhub'
+        sh 'mvn deploy -P cloudhub' 
       }
     }
+  }
+}
