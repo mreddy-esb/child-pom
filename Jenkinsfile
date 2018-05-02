@@ -30,7 +30,7 @@ def mvn(args) {
         // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
         
         // settings.xml referencing the GitHub Artifactory repositories
-         mavenMySettings: 'c1c27aab-9532-4f6c-a989-83d32425b586',
+         mavenSettingsConfig: 'c1c27aab-9532-4f6c-a989-83d32425b586',
         // we do not need to set a special local maven repo, take the one from the standard box
         //mavenLocalRepo: '.repository'
         ) {
