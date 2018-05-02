@@ -6,7 +6,11 @@ pipeline {
 
             steps {
                 withMaven(maven : 'M3') {
-                    bat 'mvn clean package'
+                
+        configFileProvider(
+        [configFile(fileId: 'maven-settings', variable: 'C:\Users\Dad\.m2')]) {
+        bat 'mvn -s $MAVEN_SETTINGS clean package'
+    }
                 }
             }
         }
