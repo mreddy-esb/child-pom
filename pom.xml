@@ -26,7 +26,7 @@
     <mule.munit.support.version>3.9.1</mule.munit.support.version>
     </properties>
     
-    <distributionManagement>
+   <!--  <distributionManagement>
 		
 		<repository>
 			<id>releases</id>
@@ -37,7 +37,7 @@
 			<id>snapshots</id>
 			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
-	</distributionManagement>
+	</distributionManagement> -->
     
     
     
